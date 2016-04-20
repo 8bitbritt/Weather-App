@@ -31,12 +31,6 @@
 
     <div id="wrapper">
 
-      <a href="https://www.yahoo.com/?ilc=401" target="_blank" class="yahoo">
-
-        <img src="https://poweredby.yahoo.com/purple.png" width="134" height="29" class="yahoo"/>
-
-      </a>
-
       <div id="content">
 
         <form ng="submit" name="form">
@@ -54,38 +48,109 @@
         <h1>
           Weather in :
           <span class="city">
-            {{ place.location.city }}
+            {{ place.city.name }}
           </span>
         </h1>
 
         <h2>
-          <img class="img-thumbnail forecast-img" src="images/{{place.item.condition.code}}.gif" />
-          {{ place.item.condition.text }} | {{ place.item.condition.temp }}°
+          <img class="img-thumbnail forecast-img" src="images/{{ place.list[1].weather[0].icon }}.gif" alt="{{ place.list[0].weather[0].description }}"/>
+          {{ place.list[0].weather[0].description }} | {{ place.list[0].main.temp }}°F
         </h2>
 <div class="row">
-        <div class="forecast" ng-repeat="forecast in place.item.forecast">
+        <div class="forecast">
           <div class="box">
             <div class="boxright">
               <h3>
-                {{ forecast.day }}
+                Day 2
               </h3>
               <p>
-                {{ forecast.text }}
+                {{ place.list[9].weather[0].description }}
               </p>
             </div>
             <div class="boxleft">
-              <img class="img-thumbnail forecast-img" src="images/{{forecast.code}}.gif" />
+              <img class="img-thumbnail forecast-img" src="images/{{ place.list[9].weather[0].icon }}.gif" alt="{{ place.list[9].weather[0].description }}"/>
             </div>
 
             <div class="clear">
             </div>
             <div class="temp">
               <p>
-                H : <span class="high">{{ forecast.high }}°</span> | L : <span class="low">{{ forecast.low }}°</span>
+                H : <span class="high">{{ place.list[9].main.temp_max }}°</span> | L : <span class="low">{{ place.list[9].main.temp_min }}°</span>
+  </p>
+</div>
+</div></div>
+  <div class="forecast">
+ <div class="box">
+            <div class="boxright">
+              <h3>
+                Day 3
+              </h3>
+              <p>
+                {{ place.list[17].weather[0].description }}
+              </p>
+            </div>
+            <div class="boxleft">
+              <img class="img-thumbnail forecast-img" src="images/{{ place.list[17].weather[0].icon }}.gif" alt="{{ place.list[17].weather[0].description }}"/>
+            </div>
+
+            <div class="clear">
+            </div>
+            <div class="temp">
+              <p>
+                H : <span class="high">{{ place.list[17].main.temp_max }}°</span> | L : <span class="low">{{ place.list[17].main.temp_min }}°</span>
   </p>
 </div>
 </div>
             </div>
+            
+             <div class="forecast">
+ <div class="box">
+            <div class="boxright">
+              <h3>
+                Day 4
+              </h3>
+              <p>
+                {{ place.list[25].weather[0].description }}
+              </p>
+            </div>
+            <div class="boxleft">
+              <img class="img-thumbnail forecast-img" src="images/{{ place.list[25].weather[0].icon }}.gif" alt="{{ place.list[25].weather[0].description }}"/>
+            </div>
+
+            <div class="clear">
+            </div>
+            <div class="temp">
+              <p>
+                H : <span class="high">{{ place.list[25].main.temp_max }}°</span> | L : <span class="low">{{ place.list[25].main.temp_min }}°</span>
+  </p>
+</div>
+</div>
+            </div>
+            
+             <div class="forecast">
+ <div class="box">
+            <div class="boxright">
+              <h3>
+               Day 5
+              </h3>
+              <p>
+                {{ place.list[33].weather[0].description }}
+              </p>
+            </div>
+            <div class="boxleft">
+              <img class="img-thumbnail forecast-img" src="images/{{ place.list[33].weather[0].icon }}.gif" alt="{{ place.list[33].weather[0].description }}"/>
+            </div>
+
+            <div class="clear">
+            </div>
+            <div class="temp">
+              <p>
+                H : <span class="high">{{ place.list[33].main.temp_max }}°</span> | L : <span class="low">{{ place.list[33].main.temp_min }}°</span>
+  </p>
+</div>
+</div>
+            </div>
+            
           </div>
         </div>
 

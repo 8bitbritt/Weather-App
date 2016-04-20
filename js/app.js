@@ -1,3 +1,4 @@
+
 var app = angular.module('weatherApp', []);
 
 app.controller('weatherCtrl', ['$scope', 'weatherService', function($scope, weatherService) {
@@ -7,7 +8,7 @@ app.controller('weatherCtrl', ['$scope', 'weatherService', function($scope, weat
     });
   }
 
-fetchWeather('94101');
+fetchWeather('92311');
 
   $scope.findWeather = function(zip) {
     $scope.place = '';
@@ -17,22 +18,21 @@ fetchWeather('94101');
 
 }]);
 
-app.factory('weatherService', ['$http', '$q', function ($http, $q){
-  function getWeather (zip) {
-    var deferred = $q.defer();
-    $http.get('https://query.yahooapis.com/v1/public/yql?q=SELECT%20*%20FROM%20weather.forecast%20WHERE%20location%3D%22' + zip + '%22&format=json&diagnostics=true&callback=')
-      .success(function(data){
-        deferred.resolve(data.query.results.channel);
-      })
-      .error(function(err){
-        console.log('Error retrieving zipcode');
-        deferred.reject(err);
-      });
+ app.factory('weatherService', ['$http', '$q', function($http, $q) {
+             function getWeather(zip) {
+                 var deferred = $q.defer();
+                 $http.get('http://api.openweathermap.org/data/2.5/forecast?zip='+ zip + ',us&mode=json&units=imperial' + '&appid=03a8a583c92ec96993abfe2c33b91779')
+                     .success(function(data) {
+                         deferred.resolve(data);
+                     })
+                     .error(function(err) {
+                         console.log('Error retrieving zipcode');
+                         deferred.reject(err);
+                     });
+                     return deferred.promise;
+                 }
+                 return {
+                     getWeather: getWeather
+                 };
+             }]);
 
-    return deferred.promise;
-  }
-
-  return {
-    getWeather: getWeather
-  };
-}]);
