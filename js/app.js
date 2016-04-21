@@ -8,7 +8,7 @@ app.controller('weatherCtrl', ['$scope', 'weatherService', function($scope, weat
     });
   }
 
-fetchWeather('94101');
+fetchWeather('94102');
 
   $scope.findWeather = function(zip) {
     $scope.place = '';
@@ -35,4 +35,3 @@ fetchWeather('94101');
                      getWeather: getWeather
                  };
              }]);
-
