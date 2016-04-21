@@ -256,6 +256,21 @@ textarea:focus, input:focus{
     outline: none;
 }
 
+.attr {
+  color: #FFF;
+  font-size: 12px;
+  padding: 5px; }
+
+.attr a {
+  color: #FFF;
+  text-decoration: underline; }
+
+.attr a:hover {
+  color: #c0e7f2; }
+
+.attr a:visited {
+  color: #c0e7f2; }
+
 
 /*Media Queries*/
 
