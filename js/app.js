@@ -5,6 +5,18 @@ app.controller('weatherCtrl', ['$scope', 'weatherService', function($scope, weat
   function fetchWeather(zip) {
     weatherService.getWeather(zip).then(function(data){
       $scope.place = data;
+	  //setting the days of the week
+	   $scope.dayTwo = new Date();
+    $scope.dayTwo.setDate($scope.dayTwo.getDate() + 1);
+	//day 3
+	$scope.dayThree = new Date();
+    $scope.dayThree.setDate($scope.dayThree.getDate() + 2);
+	//day4
+	$scope.dayFour = new Date();
+    $scope.dayFour.setDate($scope.dayFour.getDate() + 3);
+	//day 5
+	$scope.dayFive = new Date();
+    $scope.dayFive.setDate($scope.dayFive.getDate() + 4);
     });
   }
 
