@@ -2,7 +2,7 @@
 <html ng-app="weatherApp">
 
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
       WeatherIn
@@ -10,155 +10,119 @@
     <script>
       document.write('<base href="' + document.location + '" />');
     </script>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css"/>
     <link href='https://fonts.googleapis.com/css?family=Bitter|Lato:400,700' rel='stylesheet' type='text/css'>
-    <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.16/angular.js" data-semver="1.2.16">
-    </script>
-    <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js">
-    </script>
-    <script src="js/app.js">
-    </script>
-    <script src="js/gradient.js">
-    </script>
+    <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.16/angular.js" data-semver="1.2.16"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/gradient.js"></script>
 
-    <link rel="shortcut icon" href="images/5.gif" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.gif" type="image/x-icon"/>
 
-   <link rel="icon" href="images/5.gif" type="image/x-icon" />
+    <link rel="icon" href="images/favicon.gif" type="image/x-icon"/>
 
   </head>
 
   <body ng-controller="weatherCtrl">
-
     <div id="wrapper">
-    <span class="attr">
-    Powered By <a href="http://www.OpenWeatherMap.org" target="_blank">OpenWeatherMap.org</a>
-</span>
+
       <div id="content">
 
-        <form ng="submit" name="form">
+        <div id="week">
           <div class="form-group">
-            <input class="form-control" type="tel" ng-model="zip" name="zipcode" placeholder=" Enter Your Zip Code"/>
-            <input class="button" type="submit" value="Search" ng-click="findWeather(zip)" />
+            <form ng="submit" name="form">
 
-            <!--
-<input class="button" type="reset" ng-click="findWeather('94101'); zip = ''">
--->
-      </div>
+              <input class="form-control" type="tel" ng-model="zip" name="zipcode" placeholder="Enter Your Zip Code"/>
+              <input class="button" type="submit" value="Search" ng-click="findWeather(zip)"/>
 
-        </form>
-<div id="week">
-        <h1>
-          Weather in :
-          <span class="city">
-            {{ place.city.name }}
-          </span>
-        </h1>
+              <!-- <input class="button" type="reset" ng-click="findWeather('94101'); zip = ''"> -->
 
-        <h2>
-          <img class="img-thumbnail forecast-img" src="images/{{ place.list[1].weather[0].icon }}.gif" alt="{{ place.list[0].weather[0].description }}"/>
-          {{ place.list[0].weather[0].description }} | {{ place.list[0].main.temp }}°F
-        </h2>
-<div class="row">
-        <div class="forecast">
-          <div class="box">
-            <div class="boxright">
-              <h3>
-                {{ dayTwo | date:'EEE' }}
-              </h3>
-              <p>
-                {{ place.list[9].weather[0].description }}
-              </p>
-            </div>
-            <div class="boxleft">
-              <img class="img-thumbnail forecast-img" src="images/{{ place.list[9].weather[0].icon }}.gif" alt="{{ place.list[9].weather[0].description }}"/>
-            </div>
+            </form>
+          </div>
+          <h1>
+            Weather in :
+            <span class="city">
+              {{ place.city.name }}
+            </span>
+          </h1>
 
-            <div class="clear">
-            </div>
-            <div class="temp">
-              <p>
-                H : <span class="high">{{ place.list[9].main.temp_max }}°</span> | L : <span class="low">{{ place.list[5].main.temp_min }}°</span>
-  </p>
-</div>
-</div></div>
-  <div class="forecast">
- <div class="box">
-            <div class="boxright">
-              <h3>
-                {{ dayThree | date:'EEE' }}
-              </h3>
-              <p>
-                {{ place.list[17].weather[0].description }}
-              </p>
-            </div>
-            <div class="boxleft">
-              <img class="img-thumbnail forecast-img" src="images/{{ place.list[17].weather[0].icon }}.gif" alt="{{ place.list[17].weather[0].description }}"/>
-            </div>
+          <h2>
+            <img class="img-thumbnail forecast-img" src="images/{{ place.list[1].weather[0].icon }}.gif" alt="{{ place.list[0].weather[0].description }}"/>
+            {{ place.list[0].weather.description }}
+            |
+            {{ place.list[0].main.temp }}°F
+          </h2>
 
-            <div class="clear">
+          <div class="row">
+            <!-- Day 2 -->
+            <div class="forecast">
+              <div class="box">
+                <div class="boxleft">
+                  <img class="img-thumbnail forecast-img" src="images/{{ place.list[8].weather[0].icon }}.gif" alt="{{ place.list[7].weather[0].description }}"/>
+                </div>
+                <div class="boxright">
+                  <h3>
+                    {{ dayTwo | date:'EEE' }}
+                  </h3>
+                  <p>
+                    {{ place.list[7].weather[0].description }}
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="temp">
-              <p>
-                H : <span class="high">{{ place.list[16].main.temp_max }}°</span> | L : <span class="low">{{ place.list[13].main.temp_min }}°</span>
-  </p>
-</div>
-</div>
+            <!-- Day 3 -->
+            <div class="forecast">
+              <div class="box">
+                <div class="boxleft">
+                  <img class="img-thumbnail forecast-img" src="images/{{ place.list[17].weather[0].icon }}.gif" alt="{{ place.list[12].weather[0].description }}"/>
+                </div>
+                <div class="boxright">
+                  <h3>
+                    {{ dayThree | date:'EEE' }}
+                  </h3>
+                  <p>
+                    {{ place.list[15].weather[0].description }}
+                  </p>
+                </div>
+              </div>
             </div>
-
-             <div class="forecast">
- <div class="box">
-            <div class="boxright">
-              <h3>
-                {{ dayFour| date:'EEE' }}
-              </h3>
-              <p>
-                {{ place.list[25].weather[0].description }}
-              </p>
+            <!-- Day 4 -->
+            <div class="forecast">
+              <div class="box">
+                <div class="boxleft">
+                  <img class="img-thumbnail forecast-img" src="images/{{ place.list[25].weather[0].icon }}.gif" alt="{{ place.list[22].weather[0].description }}"/>
+                </div>
+                <div class="boxright">
+                  <h3>
+                    {{ dayFour| date:'EEE' }}
+                  </h3>
+                  <p>
+                    {{ place.list[20].weather[0].description }}
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="boxleft">
-              <img class="img-thumbnail forecast-img" src="images/{{ place.list[25].weather[0].icon }}.gif" alt="{{ place.list[25].weather[0].description }}"/>
-            </div>
-
-            <div class="clear">
-            </div>
-            <div class="temp">
-              <p>
-                H : <span class="high">{{ place.list[25].main.temp_max }}°</span> | L : <span class="low">{{ place.list[20].main.temp_min }}°</span>
-  </p>
-</div>
-</div>
-            </div>
-
-             <div class="forecast">
- <div class="box">
-            <div class="boxright">
-              <h3>
-              {{ dayFive | date:'EEE' }}
-              </h3>
-              <p>
-                {{ place.list[33].weather[0].description }}
-              </p>
-            </div>
-            <div class="boxleft">
-              <img class="img-thumbnail forecast-img" src="images/{{ place.list[33].weather[0].icon }}.gif" alt="{{ place.list[33].weather[0].description }}"/>
-            </div>
-
-            <div class="clear">
-            </div>
-            <div class="temp">
-              <p>
-                H : <span class="high">{{ place.list[33].main.temp_max }}°</span> | L : <span class="low">{{ place.list[30].main.temp_min }}°</span>
-  </p>
-</div>
-</div>
+            <!-- Day 5 -->
+            <div class="forecast">
+              <div class="box">
+                <div class="boxleft">
+                  <img class="img-thumbnail forecast-img" src="images/{{ place.list[33].weather[0].icon }}.gif" alt="{{ place.list[30].weather[0].description }}"/>
+                </div>
+                <div class="boxright">
+                  <h3>
+                    {{ dayFive | date:'EEE' }}
+                  </h3>
+                  <p>
+                    {{ place.list[33].weather[0].description }}
+                  </p>
+                </div>
+              </div>
             </div>
 
           </div>
         </div>
 
-
       </div>
-
 
     </div>
 

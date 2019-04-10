@@ -87,7 +87,8 @@ h2 {
   text-align: center;
   font-size: 28px;
   margin-bottom: 40px;
-  color: #b8b7b7; }
+  color: #b8b7b7;
+  padding-top: 10px; }
 
 h3 {
   font-family: "Lato", Helvetica, Arial sans-serif;
@@ -101,17 +102,16 @@ h3 {
 #wrapper {
   width: 100%;
   height: 100%;
-  margin: 0 auto; }
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 #content {
-  min-height: 600px;
-  max-width: 1200px;
-  margin-top: 80px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 50px;
-  background-color: #fff;
-  display: block; }
+  display: flex;
+  background-color: #FFF;
+  align-self: center;
+  justify-content: center;
+  width: 80%; }
 
 input.button {
   background-color: #e53b2c;
@@ -120,74 +120,68 @@ input.button {
   font-family: "Lato", Helvetica, Arial sans-serif;
   font-size: 14px;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.35);
-  width: 90px;
-  height: 35px;
-  margin-left: auto;
-  margin-right: auto;
   border: 0;
-  padding: 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  width: 30%;
   border: none;
-  outline: none; }
+  outline: none;
+  align-self: flex-end; }
+
+form {
+  width: 80%;
+  align-self: center;
+  padding-bottom: 30px;
+  padding-top: 50px; }
+
+.form-control {
+  padding-left: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  color: #232323; }
 
 input.form-control.ng-pristine.ng-valid.ng-dirty {
   margin: 0;
   border: 1px solid #ccc;
   padding: 0;
-  width: 78%;
-  border: none;
   outline: none; }
 
 .form-group {
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 40px; }
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 .form-control {
-  float: left;
-  width: 80%;
-  height: 29px; }
+  padding-top: 10px;
+  padding-bottom: 10px;
+  align-self: flex-start;
+  width: 65%; }
 
 #week {
   width: 95%;
-  margin: 0 auto;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 20px; }
+  padding-bottom: 50px; }
 
 .forecast {
-  width: 25%;
-  float: left;
-  margin-bottom: 40px; }
-
-.box {
-  margin-left: 42px; }
+  width: 17%; }
 
 .forecast-img {
-  margin-left: -10px;
-  width: 45px;
-  padding: 5px; }
+  width: 50px;
+  padding-right: 20px; }
 
-.box:after {
-  clear: both; }
-
-.boxleft {
-  float: left; }
+.box {
+  display: flex; }
 
 .boxright {
-  float: right;
-  width: 70%; }
+  align-self: flex-end; }
+
+.boxleft {
+  align-self: flex-start; }
 
 .boxright p {
   color: #888;
-  font-size: 11px; }
-
-.temp {
-  font-family: "Lato", Helvetica, Arial sans-serif;
-  color: #525151;
-  font-size: 12px;
-  line-height: 12px; }
+  font-size: 1em;
+  line-height: 1.3em; }
 
 .city {
   color: #ec7267; }
@@ -195,81 +189,41 @@ input.form-control.ng-pristine.ng-valid.ng-dirty {
 .clear {
   clear: both; }
 
-.high {
-  color: #c62618;
-  font-weight: bold; }
-
-.low {
-  color: #6bc7e1;
-  font-weight: bold; }
-
 .row {
-  margin-left: auto;
-  margin-right: auto; }
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 textarea:focus, input:focus {
-  outline: none; }
-
-  .attr {
-  color: #FFF;
-  font-size: 12px;
-  padding: 5px; }
-
-.attr a {
-  color: #FFF;
-  text-decoration: underline; }
-
-.attr a:hover {
-  color: #c0e7f2; }
-
-.attr a:visited {
-  color: #c0e7f2; }
-
+  outline: none;
+  border: 1px solid #41b7d8; }
 
 /*Media Queries*/
-@media only screen and (max-width: 1200px) {
-  .forecast {
-    margin-left: 20px; } }
-@media only screen and (max-width: 1000px) {
-  .forecast {
-    width: 200px; } }
-@media only screen and (max-width: 550px) {
-  .forecast {
-    margin-left: auto;
-    margin-right: auto;
-    float: none; }
-
-  .ng-pristine, .ng-valid {
-    width: 90%;
-    margin: 0 auto; }
-
+@media only screen and (max-width: 950px) {
   #content {
-    margin-top: 10px; }
+    width: 90%; }
 
-  input.form-control.ng-pristine.ng-valid {
-    width: 76%; } }
+  .forecast {
+    width: 30%; } }
+@media only screen and (max-width: 730px) {
+  form {
+    padding-top: 55px; }
+
+  .forecast {
+    width: 48%;
+    padding-bottom: 30px; }
+
+  .row {
+    flex-wrap: wrap; } }
+@media only screen and (max-width: 650px) {
+  form {
+    width: 95%; }
+
+  .form-control {
+    width: 62%; } }
 @media only screen and (max-width: 450px) {
-  .ng-pristine, .ng-valid {
-    width: 90%;
-    margin: 0 auto; }
-
-  input.form-control.ng-pristine.ng-valid {
-    width: 70%; }
-
   h1 {
-    font-size: 28px; }
+    font-size: 6.2vw; }
 
   h2 {
-    font-size: 24px; } }
-@media only screen and (max-width: 440px) {
-  input.form-control.ng-pristine.ng-valid {
-    width: 98%; }
-
-  input.button {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    top: 10px; } }
-
-/*# sourceMappingURL=styles.css.map */
+    font-size: 5vw; } }
